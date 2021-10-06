@@ -1,4 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const devMode = true
 module.exports = {
   mode: 'development',
   output: {
@@ -7,12 +10,19 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     })
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'] // Añadimos el soporte para la extencion de JSX
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -23,6 +33,14 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.(s*)css$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   }
