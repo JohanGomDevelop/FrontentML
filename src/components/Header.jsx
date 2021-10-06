@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-const Header = () => {
+const Header = (props) => {
   const [searchText, setSearchText] = useState('')
+
   const handleSearch = (text) => {
     setSearchText(text)
+  }
+
+  const handleClick = () => {
+    props.onChangeSearch(searchText)
   }
 
   return (
@@ -12,7 +17,7 @@ const Header = () => {
         <a className='logo' />
         <form className='form-search'>
           <input type='text' className='search-input' placeholder='Nunca dejes de buscar' onChange={(e) => handleSearch(e.target.value)} />
-          <button type='button' className='search-button' />
+          <button type='button' className='search-button' onClick={handleClick} />
         </form>
       </div>
     </div>

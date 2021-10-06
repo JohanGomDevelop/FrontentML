@@ -1,31 +1,58 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import Header from './Header'
 
-const Header = () => {
-  const [searchText, setSearchText] = useState('')
+const SearchResult = () => {
   const [list, setList] = useState([])
-  const handleSearch = (text) => {
-    setSearchText(text)
+  const [searchText, setSearchText] = useState('')
+  const [breadcrumb, setBreadcrumb] = useState([])
+  const getBreadcrumb = (array) => {
+    const breadcrumb = []
+    for (let index = 0; index < array.length; index++) {
+      const element = array[index].category_id
+      breadcrumb.push(element)
+    }
+    setBreadcrumb(breadcrumb)
   }
 
-  useEffect(() => {
-    // eslint-disable-next-line no-undef
-    fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + searchText)
+  const handleSearch = (text) => {
+    setSearchText(text)
+    /* global fetch:false */
+    console.log('searchText', text)
+    fetch('https://api.mercadolibre.com/sites/MLA/search?total=4&limit=4&q=' + text)
       .then(response => response.json())
-      .then(data => setList(data.results))
-  }, [])
+      .then(data => {
+        setList(data.results)
+        getBreadcrumb(data.results)
+      })
+  }
 
   return (
-    <div className='content'>
-      <div className='header'>
-        <div className='content-header'>
-          <a className='logo' />
-          <form className='form-search'>
-            <input type='text' className='search-input' placeholder='Nunca dejes de buscar' onChange={(e) => handleSearch(e.target.value)} />
-            <button type='button' className='search-button' />
-          </form>
-        </div>
+    <div className='content-page'>
+      <Header onChangeSearch={(text) => handleSearch(text)} />
+      <section className='breadcrumb'>
+        <ul>
+          {breadcrumb.map((name) => (
+            // eslint-disable-next-line react/jsx-key
+            <li>{name}</li>
+          ))}
+
+        </ul>
+      </section>
+      <div className='list-product'>
+        {list.map((item, index) => (
+          <div className='item' key={item.id}>
+            <img src={item.thumbnail} />
+            <div className='content-item'>
+              <h2>{'$' + item.price}</h2>
+              <h3>{item.title}</h3>
+            </div>
+            <div className='content-status'>
+              <h3>{item.condition}</h3>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
 }
-export default Header
+export default SearchResult
