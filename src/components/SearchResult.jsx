@@ -1,49 +1,26 @@
-import React, { useState } from 'react'
-import Header from './Header'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-const SearchResult = () => {
-  const [list, setList] = useState([])
-  const [searchText, setSearchText] = useState('')
-  const [breadcrumb, setBreadcrumb] = useState([])
-  const getBreadcrumb = (array) => {
-    const breadcrumb = []
-    for (let index = 0; index < array.length; index++) {
-      const element = array[index].category_id
-      breadcrumb.push(element)
-    }
-    setBreadcrumb(breadcrumb)
+const SearchResult = (props) => {
+  const list = props.list
+  const history = useHistory()
+
+  const currencyFormat = (num) => {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
 
-  const handleSearch = (text) => {
-    setSearchText(text)
-    /* global fetch:false */
-    console.log('searchText', text)
-    fetch('https://api.mercadolibre.com/sites/MLA/search?total=4&limit=4&q=' + text)
-      .then(response => response.json())
-      .then(data => {
-        setList(data.results)
-        getBreadcrumb(data.results)
-      })
+  const goDetails = (item) => {
+    history.push('/item/' + item.id)
   }
 
   return (
-    <div className='content-page'>
-      <Header onChangeSearch={(text) => handleSearch(text)} />
-      <section className='breadcrumb'>
-        <ul>
-          {breadcrumb.map((name) => (
-            // eslint-disable-next-line react/jsx-key
-            <li>{name}</li>
-          ))}
-
-        </ul>
-      </section>
+    <section className='content-page'>
       <div className='list-product'>
         {list.map((item, index) => (
-          <div className='item' key={item.id}>
+          <div className='item' key={item.id} onClick={() => goDetails(item)}>
             <img src={item.thumbnail} />
             <div className='content-item'>
-              <h2>{'$' + item.price}</h2>
+              <h2>{currencyFormat(item.price)}</h2>
               <h3>{item.title}</h3>
             </div>
             <div className='content-status'>
@@ -52,7 +29,7 @@ const SearchResult = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 export default SearchResult

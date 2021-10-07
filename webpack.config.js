@@ -4,8 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const devMode = true
 module.exports = {
   mode: 'development',
+
+  devServer: {
+    historyApiFallback: true
+  },
   output: {
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -20,6 +25,7 @@ module.exports = {
     extensions: ['.js', '.jsx'] // Añadimos el soporte para la extencion de JSX
   },
   module: {
+
     rules: [
       {
         test: /\.(js|jsx)$/,

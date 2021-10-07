@@ -8,17 +8,17 @@ html{
 body{
   margin: 0;
   background-color: #EEEEEE;
+  font-family: 'Roboto', sans-serif;
 }
 .App{
     .header{
      background-color: $color-prymary;
      height: 50px;
      padding-top: 8px;
-
     }
 
     .content-page{
-        display: block;
+     display: block;
     }
 
     .content-header{
@@ -79,6 +79,19 @@ body{
         
     }
 
+   .breadcrumb{
+     width: 70%;
+     margin: 0 auto;
+     background-color: #EEEEEE;
+     .content{
+        margin-left: 0;
+        padding-left: 0;
+     }
+     .keyword{
+       display: inline;
+     }
+    }
+    
     .list-product{
         background-color: #ffffff;
         width: 70%;
