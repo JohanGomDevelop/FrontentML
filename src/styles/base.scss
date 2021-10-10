@@ -101,6 +101,9 @@ body{
         margin: 0 auto;
         padding: 10px;
         margin-bottom: 100px;
+        border-radius: 3px;
+        -webkit-box-shadow: -2px 4px 7px 4px #D8D8D8; 
+        box-shadow: -2px 4px 7px 4px #D8D8D8;
     }
 
 
@@ -111,6 +114,9 @@ body{
         margin: 0 auto;
         padding: 15px;
         margin-bottom: 100px;
+        border-radius: 3px;
+        -webkit-box-shadow: -2px 4px 7px 4px #D8D8D8; 
+        box-shadow: -2px 4px 7px 4px #D8D8D8;
         .description{
             width:  70%;
             margin-top: 30px;
@@ -212,12 +218,12 @@ body{
             h2{
                 font-size: 20px;
                 font-weight: 600;
-                color: #717171;
+                color: #000000;
             }
             h3{
                 font-size: 16px;
                 font-weight: 500;
-                color: #717171;
+                color: #000000;
             }
         }
 
@@ -229,7 +235,7 @@ body{
                 font-size: 16px;
                 padding-right: 20px;
                 font-weight: 500;
-                color: #717171;
+                color: #000000;
                 margin: 0 auto;
             }
         }

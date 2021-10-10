@@ -24,7 +24,7 @@ const SearchResult = (props) => {
               <h3>{item.item.title}</h3>
             </div>
             <div className='content-status'>
-              <h3>{item.item.condition}</h3>
+              <h3>{String(item.item.condition).toUpperCase()}</h3>
             </div>
           </div>
         ))}
