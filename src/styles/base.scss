@@ -89,6 +89,9 @@ body{
      }
      .keyword{
        display: inline;
+       color: #717171;
+       font-weight: 300;
+       font-size: 14px;
      }
     }
     
@@ -99,6 +102,99 @@ body{
         padding: 10px;
         margin-bottom: 100px;
     }
+
+
+    .product{
+        margin-top: 20px;
+        background-color: #ffffff;
+        width: 70%;
+        margin: 0 auto;
+        padding: 15px;
+        margin-bottom: 100px;
+        .description{
+            width:  70%;
+            margin-top: 30px;
+            h2{
+              color:#636363;
+              font-weight: 500;
+            }
+            p{
+              font-weight: 300 !important;  
+              color:#969696;
+            }
+        }
+        
+    }
+   
+   
+    @media (max-width: 600px) {
+        .product{
+          width: 90%; 
+        }
+        .breadcrumb{
+          width: 90%;
+        }
+        .description{
+            margin-top: 65px;
+            width: 100% !important;
+        }
+    }
+
+    .content-image{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        min-height: 200px;
+        .preview{
+          width: 70%;
+          min-width: 200px;
+          img{
+             width: 100%;
+             min-width: 200px;
+          } 
+        }
+
+
+
+
+        @media (max-width: 953px) {
+            .preview{
+                width: 100%;
+            }
+            .name{
+                width:  100% !important;
+            }
+        }
+        
+        .name{
+          width:  30%;
+          height: 200px;
+          min-width: 200px;
+          h1{
+            font-size: 20px;
+            color: #000000;
+            font-weight: 800;
+          }
+          h2{
+            font-size: 24px;
+            color: #000000;
+            font-weight: 400;
+         }
+          button{
+            width: 180px;
+            height: 40px;
+            color: #ffffff;
+            margin: 0 auto;
+            background-color: #3D8CF8;
+            border-radius: 5px;  
+            border-width: 0;
+          }
+        }
+     
+
+    }
+
 
     .item{
         margin: 0 auto;

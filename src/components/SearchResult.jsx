@@ -17,14 +17,14 @@ const SearchResult = (props) => {
     <section className='content-page'>
       <div className='list-product'>
         {list.map((item, index) => (
-          <div className='item' key={item.id} onClick={() => goDetails(item)}>
-            <img src={item.thumbnail} />
+          <div className='item' key={item.item.id} onClick={() => goDetails(item.item)}>
+            <img src={item.item.picture} />
             <div className='content-item'>
-              <h2>{currencyFormat(item.price)}</h2>
-              <h3>{item.title}</h3>
+              <h2>{currencyFormat(item.item.price.amount)}</h2>
+              <h3>{item.item.title}</h3>
             </div>
             <div className='content-status'>
-              <h3>{item.condition}</h3>
+              <h3>{item.item.condition}</h3>
             </div>
           </div>
         ))}

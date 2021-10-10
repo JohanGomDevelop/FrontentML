@@ -4,6 +4,9 @@ import Header from '../components/Header'
 import BreadCrumbs from '../components/BreadCrumbs'
 import queryString from 'query-string'
 import { useHistory } from 'react-router-dom'
+const env = process.env.NODE_ENV || 'development'
+const config = require(__dirname + '../../config/config.json')[env]
+
 const Results = (props) => {
   const [list, setList] = useState([])
   const [breadcrumb, setBreadcrumb] = useState([])
@@ -14,7 +17,7 @@ const Results = (props) => {
   const getBreadcrumb = (array) => {
     const breadcrumb = []
     for (let index = 0; index < array.length; index++) {
-      const element = array[index].category_id
+      const element = array[index]
       breadcrumb.push(element)
     }
     setBreadcrumb(breadcrumb)
@@ -22,12 +25,14 @@ const Results = (props) => {
 
   const handleSearch = (text) => {
     history.push('/items?search=' + text)
+    const url = config.urlSearch + '?q=' + text
     /* global fetch:false */
-    fetch('https://api.mercadolibre.com/sites/MLA/search?total=4&limit=4&q=' + text)
+    fetch(url)
       .then(response => response.json())
       .then(data => {
-        setList(data.results)
-        getBreadcrumb(data.results)
+        console.log(data)
+        setList(data.items)
+        getBreadcrumb(data.categories)
       })
   }
 

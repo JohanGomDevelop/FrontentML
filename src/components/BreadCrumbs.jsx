@@ -8,7 +8,7 @@ const BreadCrumbs = (props) => {
         <ul className='content'>
           {list.map((name) => (
           // eslint-disable-next-line react/jsx-key
-            <li className='keyword'>{name + ' >'}</li>
+            <li className='keyword' key={name}>{name + '  >  '}</li>
           ))}
 
         </ul>

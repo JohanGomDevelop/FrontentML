@@ -14,7 +14,7 @@ const Header = (props) => {
   return (
     <div className='header'>
       <div className='content-header'>
-        <a className='logo' />
+        <a className='logo' href='/' />
         <form className='form-search'>
           <input type='text' className='search-input' placeholder='Nunca dejes de buscar' onChange={(e) => handleSearch(e.target.value)} />
           <button type='button' className='search-button' onClick={handleClick} />
