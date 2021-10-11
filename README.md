@@ -1,16 +1,16 @@
 # Test Front end React ML
 El proyecto implementa 3 vistas
-- Caja de búsqueda
-![]('screen/screen1.png')
+### Caja de búsqueda
+![](screen/screen1.png)
 
-- Resultados de la búsqueda
-![]('screen/screen2.png')
+### Resultados de la búsqueda
+![](screen/screen2.png)
 
-- Detalle del producto
-![]('screen/screen3.png')
+### Detalle del producto
+![](screen/screen3.png)
 
 
- El proyecto consume los endpoint del proyecto ApiTestML ubicado en https://github.com/JohanGomDevelop/ApiTestML
+ El proyecto consume los endpoint de la api ApiTestML ubicado en https://github.com/JohanGomDevelop/ApiTestML
 
 Los enpoint son:
 
