@@ -23,7 +23,10 @@ Ejecuta los comandos
 - npm run dev
 
 Generar proyecto en dev
-npx run serve:dev
+- npx run serve:dev
+
+Correr test 
+- npm run test
 
 El proyecto proyecto corre en el pueto 8080 por defecto.
 
@@ -37,7 +40,16 @@ Se implementa el cambio de titulo y description de la pagina con el
 componente helmet
 
 
+## Performance
 
+- Se implementa React.memo para evitar renderización repetitiva de compoentes,
+cuando no es necesario
+
+- se Implementa React.lazy para eviatr cargar componentes que no se estan cargando
+
+## TEST
+- se realiza un test de integracion con la herramiente cypress
+![](screen/cypress.png)
 ## Autor
 JOHAN ALBERTO GÓMEZ GIRÓN 
 

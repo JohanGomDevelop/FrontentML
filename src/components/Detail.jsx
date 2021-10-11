@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Detail = (props) => {
+const DetailComponent = (props) => {
   const detail = props.detail
   console.log(detail)
   const currencyFormat = (num) => {
@@ -30,4 +30,4 @@ const Detail = (props) => {
     </section>
   )
 }
-export default Detail
+export const Detail = React.memo(DetailComponent)

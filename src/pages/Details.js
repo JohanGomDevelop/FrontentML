@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
-import Detail from '../components/Detail'
+import { Detail } from '../components/Detail'
 import { useHistory } from 'react-router-dom'
 import BreadCrumbs from '../components/BreadCrumbs'
 import Layout from '../components/Layout'

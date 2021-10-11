@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-const SearchResult = (props) => {
+const SearchResultComponent = (props) => {
   const list = props.list
   const history = useHistory()
 
@@ -32,4 +32,4 @@ const SearchResult = (props) => {
     </section>
   )
 }
-export default SearchResult
+export const SearchResult = React.memo(SearchResultComponent)

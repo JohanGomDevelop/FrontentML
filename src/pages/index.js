@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -7,20 +7,22 @@ import {
 } from 'react-router-dom'
 
 import SearchBar from './SearchBar'
-import Results from './Results'
-import Details from './Details'
+const Results = React.lazy(() => import('./Results'))
+const Details = React.lazy(() => import('./Details'))
 const NotFoundRedirect = () => <Redirect to='/' />
 
 const Pages = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={SearchBar} />
-        <Route path='/items' component={Results} />
-        <Route exact path='/item/:id' component={Details} />
-        <Route component={NotFoundRedirect} />
-      </Switch>
-    </Router>
+    <Suspense fallback={<div />}>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={SearchBar} />
+          <Route path='/items' component={Results} />
+          <Route exact path='/item/:id' component={Details} />
+          <Route component={NotFoundRedirect} />
+        </Switch>
+      </Router>
+    </Suspense>
   )
 }
 export default Pages

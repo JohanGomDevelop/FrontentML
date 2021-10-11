@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import SearchResult from '../components/SearchResult'
+import { SearchResult } from '../components/SearchResult'
 import Header from '../components/Header'
 import BreadCrumbs from '../components/BreadCrumbs'
 import queryString from 'query-string'
@@ -24,7 +24,6 @@ const Results = (props) => {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setList(data.items)
         const length = data.categories.length > 3 ? 3 : data.categories
         const list = []
@@ -40,7 +39,6 @@ const Results = (props) => {
     console.log('useEffect url')
     const params = queryString.parse(props.location.search)
     const search = params.search
-    console.log('useEffect url', search)
     if (search !== undefined) {
       setTextSearch(search)
       handleSearch(search, false)
