@@ -22,12 +22,21 @@ Ejecuta los comandos
 - npm install
 - npm run dev
 
+Generar proyecto en dev
+npx run serve:dev
+
 El proyecto proyecto corre en el pueto 8080 por defecto.
 
 ## Configuración de entorno de desarrollo
 El proyecto fue creado desde cero instalando todas las dependecias
 se configura Webpack, Babel y los loders necesarios para el proyecto
 como sass-loader.
+
+## SEO 
+Se implementa el cambio de titulo y description de la pagina con el
+componente helmet
+
+
 
 ## Autor
 JOHAN ALBERTO GÓMEZ GIRÓN 

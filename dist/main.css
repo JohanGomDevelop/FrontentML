@@ -1,0 +1,219 @@
+/*!*******************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/app.scss ***!
+  \*******************************************************************************************************/
+html {
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #EEEEEE;
+  font-family: "Roboto", sans-serif;
+}
+
+.App .header {
+  background-color: #FFF159;
+  height: 50px;
+  padding-top: 8px;
+}
+.App .content-page {
+  display: block;
+}
+.App .content-header {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.App .content-header .logo {
+  width: 50px;
+  background-image: url(/6e1b2203dcf4f2456605.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 36px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+.App .content-header .form-search {
+  width: calc(80% - 108px);
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #EEEEEE;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 0;
+  margin-left: 20px;
+}
+.App .content-header .form-search .search-input {
+  width: calc(100% - 45px);
+  height: 35;
+  border: 0;
+  padding: 5px;
+  margin-left: 3px;
+}
+.App .content-header .form-search .search-input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.App .content-header .form-search .search-button {
+  width: 40px;
+  height: 38px;
+  border-radius: 0;
+  background-image: url(/e2abedbf798c40b6a7d8.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #EEEEEE;
+  background-size: 28px;
+  background-position: center;
+  border: 0;
+}
+.App .content-header .form-search .search-button:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.App .breadcrumb {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #EEEEEE;
+}
+.App .breadcrumb .content {
+  margin-left: 0;
+  padding-left: 0;
+}
+.App .breadcrumb .keyword {
+  display: inline;
+  color: #717171;
+  font-weight: 300;
+  font-size: 14px;
+}
+.App .list-product {
+  background-color: #ffffff;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 100px;
+  border-radius: 3px;
+  -webkit-box-shadow: -2px 4px 7px 4px #D8D8D8;
+  box-shadow: -2px 4px 7px 4px #D8D8D8;
+}
+.App .product {
+  margin-top: 20px;
+  background-color: #ffffff;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 100px;
+  border-radius: 3px;
+  -webkit-box-shadow: -2px 4px 7px 4px #D8D8D8;
+  box-shadow: -2px 4px 7px 4px #D8D8D8;
+}
+.App .product .description {
+  width: 70%;
+  margin-top: 30px;
+}
+.App .product .description h2 {
+  color: #636363;
+  font-weight: 500;
+}
+.App .product .description p {
+  font-weight: 300 !important;
+  color: #969696;
+}
+@media (max-width: 600px) {
+  .App .product {
+    width: 90%;
+  }
+  .App .breadcrumb {
+    width: 90%;
+  }
+  .App .description {
+    margin-top: 65px;
+    width: 100% !important;
+  }
+}
+.App .content-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 200px;
+  padding: 5px;
+}
+.App .content-image .preview {
+  width: 70%;
+  min-width: 200px;
+}
+.App .content-image .preview img {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  min-width: 200px;
+}
+@media (max-width: 953px) {
+  .App .content-image .preview {
+    width: 100%;
+  }
+  .App .content-image .name {
+    width: 100% !important;
+  }
+}
+.App .content-image .name {
+  width: 30%;
+  height: 200px;
+  min-width: 200px;
+}
+.App .content-image .name h1 {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 800;
+}
+.App .content-image .name h2 {
+  font-size: 24px;
+  color: #000000;
+  font-weight: 400;
+}
+.App .content-image .name button {
+  width: 180px;
+  height: 40px;
+  color: #ffffff;
+  margin: 0 auto;
+  background-color: #3D8CF8;
+  border-radius: 5px;
+  border-width: 0;
+}
+.App .item {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  border-bottom: 1px solid #EEEEEE;
+}
+.App .item img {
+  width: 150px;
+  height: 150px;
+  background-color: #EEEEEE;
+}
+.App .item .content-item {
+  width: calc(70% - 150px);
+  padding: 10px;
+}
+.App .item .content-item h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+.App .item .content-item h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+}
+.App .item .content-status {
+  padding-top: 40px;
+  width: 30%;
+}
+.App .item .content-status h3 {
+  text-align: right;
+  font-size: 16px;
+  padding-right: 20px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0 auto;
+}
