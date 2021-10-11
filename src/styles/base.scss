@@ -112,7 +112,7 @@ body{
         background-color: #ffffff;
         width: 70%;
         margin: 0 auto;
-        padding: 15px;
+        padding: 20px;
         margin-bottom: 100px;
         border-radius: 3px;
         -webkit-box-shadow: -2px 4px 7px 4px #D8D8D8; 
@@ -146,23 +146,22 @@ body{
         }
     }
 
-    .content-image{
+    .content-image {
         display: flex;
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
         min-height: 200px;
+        padding: 5px;
         .preview{
           width: 70%;
           min-width: 200px;
           img{
-             width: 100%;
+             width: calc( 100% - 20px );
+             margin: 0 auto;
              min-width: 200px;
           } 
         }
-
-
-
 
         @media (max-width: 953px) {
             .preview{

@@ -10,6 +10,7 @@ const Details = (props) => {
   const [breadcrumb, setBreadcrumb] = useState([])
   const id = props.match.params.id
   const history = useHistory()
+
   const handleSearch = (text) => {
     history.push('/items?search=' + text)
   }
@@ -17,9 +18,7 @@ const Details = (props) => {
   const getById = (id) => {
     /* global fetch:false */
     id = String(id).replace('%E2%80%8B', '')
-    console.log('id', id)
     const url = config.urlGetItem + id
-    console.log('url', url)
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -36,7 +35,7 @@ const Details = (props) => {
 
   return (
     <div>
-      <Header onChangeSearch={(text) => handleSearch(text)} />
+      <Header onChangeSearch={(text) => handleSearch(text)} onKeyDown={(text) => handleSearch(text)} />
       <BreadCrumbs list={breadcrumb} />
       {detail !== null && <Detail detail={detail} />}
     </div>

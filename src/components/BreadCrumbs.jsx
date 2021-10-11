@@ -6,9 +6,9 @@ const BreadCrumbs = (props) => {
     <section>
       <div className='breadcrumb'>
         <ul className='content'>
-          {list.map((name) => (
+          {list.map((name, index) => (
           // eslint-disable-next-line react/jsx-key
-            <li className='keyword' key={name}>{name + '  >  '}</li>
+            <li className='keyword' key={index + String(name).substring(0, 5)}>{name + '  >  '}</li>
           ))}
 
         </ul>

@@ -10,41 +10,42 @@ const config = require(__dirname + '../../config/config.json')[env]
 const Results = (props) => {
   const [list, setList] = useState([])
   const [breadcrumb, setBreadcrumb] = useState([])
-  const params = queryString.parse(props.location.search)
-  const search = params.search
-  console.log(params, search)
   const history = useHistory()
-  const getBreadcrumb = (array) => {
-    const breadcrumb = []
-    for (let index = 0; index < array.length; index++) {
-      const element = array[index]
-      breadcrumb.push(element)
-    }
-    setBreadcrumb(breadcrumb)
-  }
-
-  const handleSearch = (text) => {
-    history.push('/items?search=' + text)
+  const handleSearch = (text, enrute) => {
     const url = config.urlSearch + '?q=' + text
+    if (enrute) {
+      console.log('replace url')
+      history.push('/items?search=' + text)
+    }
     /* global fetch:false */
     fetch(url)
       .then(response => response.json())
       .then(data => {
         console.log(data)
         setList(data.items)
-        getBreadcrumb(data.categories)
+        const length = data.categories.length > 3 ? 3 : data.categories
+        const list = []
+        for (let index = 0; index < length; index++) {
+          const element = data.categories[index]
+          list.push(element)
+        }
+        setBreadcrumb(list)
       })
   }
 
   useEffect(() => {
-    if (search !== undefined) { handleSearch(search) }
+    console.log('useEffect url')
+    const params = queryString.parse(props.location.search)
+    const search = params.search
+    console.log('useEffect url', search)
+    if (search !== undefined) { handleSearch(search, false) }
   }, [])
 
   return (
     <div>
-      <Header onChangeSearch={(text) => handleSearch(text)} />
+      <Header onChangeSearch={(text) => handleSearch(text, true)} onKeyDown={(text) => handleSearch(text, true)} />
       <BreadCrumbs list={breadcrumb} />
-      <SearchResult list={list} />
+      {list.length > 0 && <SearchResult list={list} />}
     </div>
   )
 }

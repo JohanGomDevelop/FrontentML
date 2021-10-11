@@ -11,7 +11,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <Header onChangeSearch={(text) => handleSearch(text)} />
+      <Header onKeyDown={(text) => handleSearch(text)} onChangeSearch={(text) => handleSearch(text)} />
     </div>
   )
 }
