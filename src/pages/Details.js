@@ -3,10 +3,12 @@ import Header from '../components/Header'
 import Detail from '../components/Detail'
 import { useHistory } from 'react-router-dom'
 import BreadCrumbs from '../components/BreadCrumbs'
+import Layout from '../components/Layout'
 const env = process.env.NODE_ENV || 'development'
 const config = require(__dirname + '../../config/config.json')[env]
 const Details = (props) => {
   const [detail, setDetail] = useState(null)
+  const [category, setCategory] = useState('')
   const [breadcrumb, setBreadcrumb] = useState([])
   const id = props.match.params.id
   const history = useHistory()
@@ -14,7 +16,9 @@ const Details = (props) => {
   const handleSearch = (text) => {
     history.push('/items?search=' + text)
   }
-
+  const currencyFormat = (num) => {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
   const getById = (id) => {
     /* global fetch:false */
     id = String(id).replace('%E2%80%8B', '')
@@ -25,7 +29,7 @@ const Details = (props) => {
         console.log(data)
         setDetail(data.item)
         setBreadcrumb(data.categories)
-        console.log(data.categories)
+        if (data.categories.length > 0) { setCategory(data.categories[0]) }
       })
   }
 
@@ -34,11 +38,11 @@ const Details = (props) => {
   }, [])
 
   return (
-    <div>
+    <Layout title={detail !== null ? `${detail.title} | MercadoLibre.com.co` : 'MercadoLibre.com.co'} description={detail !== null ? 'Cómpralo en Mercado Libre a ' + currencyFormat(detail.price.amount) + ' Paga en cuotas - Envío a nivel nacional. Encuentra más ' + category + '.' : ' '}>
       <Header onChangeSearch={(text) => handleSearch(text)} onKeyDown={(text) => handleSearch(text)} />
       <BreadCrumbs list={breadcrumb} />
       {detail !== null && <Detail detail={detail} />}
-    </div>
+    </Layout>
   )
 }
 export default Details
